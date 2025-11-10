@@ -1,0 +1,19 @@
+{
+    "version": "0.0.1",
+    "description": "My portable apps",
+    "homepage": "https://github.com/chrishenn/portable",
+    "license": "MIT",
+    "url": "https://github.com/chrishenn/portable/releases/download/v0.0.1/portable.zip",
+    "hash": "6e5710ba1ace37d06d37a742aefa4215d0efd9d5fd1283ef327a2d134d30b4ab",
+    "extract_dir": "src",
+    "installer": {
+        "script": ". \"$bucketsdir\\$bucket\\scripts\\$app\\install.ps1\""
+    },
+    "uninstaller": {
+        "script": ". \"$bucketsdir\\chris\\scripts\\$app\\uninstall.ps1\""
+    },
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/chrishenn/portable/releases/download/v$version/portable.zip"
+    }
+}

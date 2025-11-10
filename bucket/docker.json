@@ -1,0 +1,28 @@
+{
+    "version": "29.0.4",
+    "description": "Docker {cli, engine, compose, buildx} for windows containers",
+    "homepage": "https://docs.docker.com/engine",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.0.4.zip",
+            "hash": "de0fcf7960ed894705a93be5fae3a54cd0696eb9b143ebc869fd5753ccf6beb7"
+        }
+    },
+    "depends": ["docker-compose", "docker-buildx"],
+    "extract_dir": "docker",
+    "bin": ["docker.exe", "dockerd.exe"],
+    "post_install": ". \"$bucketsdir\\$bucket\\scripts\\$app\\install.ps1\"",
+    "pre_uninstall": ". \"$bucketsdir\\chris\\scripts\\$app\\uninstall.ps1\"",
+    "checkver": {
+        "github": "https://github.com/moby/moby",
+        "regex": "docker-v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.docker.com/win/static/stable/x86_64/docker-$version.zip"
+            }
+        }
+    }
+}

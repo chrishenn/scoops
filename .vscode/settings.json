@@ -1,4 +1,3 @@
-// Configure PSScriptAnalyzer settings
 {
     "[powershell]": {
         "editor.formatOnSave": true
@@ -10,9 +9,7 @@
     "json.schemas": [
         {
             "url": "https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
-            "fileMatch": [
-                "bucket/**/*.json"
-            ]
+            "fileMatch": ["bucket/**/*.json"]
         }
     ],
     "files.insertFinalNewline": true,

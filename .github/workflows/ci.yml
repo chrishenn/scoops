@@ -3,8 +3,8 @@ name: Tests
 on:
   push:
     branches:
-      - 'main'
-      - 'master'
+      - "main"
+      - "master"
   pull_request:
   workflow_dispatch:
 
@@ -18,11 +18,13 @@ jobs:
         with:
           fetch-depth: 2
           path: my_bucket
+          set-safe-directory: false
       - name: Checkout Scoop
         uses: actions/checkout@main
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
+          set-safe-directory: false
       - name: Init Test Suite
         uses: potatoqualitee/psmodulecache@main
         with:
@@ -42,11 +44,13 @@ jobs:
         with:
           fetch-depth: 2
           path: my_bucket
+          set-safe-directory: false
       - name: Checkout Scoop
         uses: actions/checkout@main
         with:
           repository: ScoopInstaller/Scoop
           path: scoop_core
+          set-safe-directory: false
       - name: Init Test Suite
         uses: potatoqualitee/psmodulecache@main
         with:

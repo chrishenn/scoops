@@ -1,0 +1,32 @@
+amends "package://github.com/jdx/hk/releases/download/v1.24.1/hk@1.24.1#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.24.1/hk@1.24.1#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+    ["prettier"] = (Builtins.prettier) {
+        batch = false
+    }
+    ["mixed_line_ending"] = Builtins.mixed_line_ending
+    ["markdown_lint"] = (Builtins.markdown_lint) {
+        check = "markdownlint-cli2 {{files}}"
+        fix = "markdownlint-cli2 --fix {{files}}"
+    }
+    ["pkl"] = Builtins.pkl
+    ["newlines"] = Builtins.newlines
+    ["trailing_whitespace"] = Builtins.trailing_whitespace
+    ["detect_private_key"] = Builtins.detect_private_key
+}
+
+hooks {
+    ["pre-commit"] {
+        fix = true
+        stash = "git"
+        steps = linters
+    }
+    ["check"] {
+        steps = linters
+    }
+    ["fix"] {
+        fix = true
+        steps = linters
+    }
+}
