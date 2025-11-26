@@ -1,35 +1,53 @@
 {
-    "version": "1.24.2812.0",
+    "version": "1.24.10212.0",
     "description": "Windows Terminal. Customized.",
     "homepage": "https://github.com/microsoft/terminal",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.2812.0/Microsoft.WindowsTerminalPreview_1.24.2812.0_x64.zip",
-            "hash": "3ae2610651da31359eb6d2db290f87602ffa5545b203bf161498dd6706c7a03b"
+            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.10212.0/Microsoft.WindowsTerminalPreview_1.24.10212.0_x64.zip",
+            "hash": "682cd57cd6d565902fa77c8f6801a0c4134bf9d3f8ecf3536ae16ac6952cbff9"
         },
         "32bit": {
-            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.2812.0/Microsoft.WindowsTerminalPreview_1.24.2812.0_x86.zip",
-            "hash": "fd263694b226966f6cd68cea0d97d47589066e36475bf789fd3367eab6acf569"
+            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.10212.0/Microsoft.WindowsTerminalPreview_1.24.10212.0_x86.zip",
+            "hash": "43c7094fa7ee3d8d38ba8fb7c1e5c827008e17c89709f4dfc61b50818464dc8e"
         },
         "arm64": {
-            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.2812.0/Microsoft.WindowsTerminalPreview_1.24.2812.0_arm64.zip",
-            "hash": "47fb196a7b4286ccd23e7e88464d489fa0bba0a4f380f5d4dfdf5008a1e7f10e"
+            "url": "https://github.com/microsoft/terminal/releases/download/v1.24.10212.0/Microsoft.WindowsTerminalPreview_1.24.10212.0_arm64.zip",
+            "hash": "6ff272e97917f1b0eb58106a3669ba349b1a0b31c90e5075345c74bafb1c1d5a"
         }
     },
-    "depends": ["jq", "git", "pwsh"],
-    "extract_dir": "terminal-1.24.2812.0",
+    "depends": [
+        "jq",
+        "git",
+        "pwsh"
+    ],
+    "extract_dir": "terminal-1.24.10212.0",
     "installer": {
-        "script": [". \"$bucketsdir\\chris\\scripts\\$app\\install.ps1\""]
+        "script": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install"
     },
     "bin": [
-        ["wt.exe", "wtp"],
-        ["wt.exe", "wt"]
+        [
+            "wt.exe",
+            "wtp"
+        ],
+        [
+            "wt.exe",
+            "wt"
+        ]
     ],
-    "shortcuts": [["WindowsTerminal.exe", "Windows Terminal Preview"]],
-    "persist": [".portable", "settings"],
+    "shortcuts": [
+        [
+            "WindowsTerminal.exe",
+            "Windows Terminal Preview"
+        ]
+    ],
+    "persist": [
+        ".portable",
+        "settings"
+    ],
     "pre_uninstall": "if (get-process -name windowsterminal -ea 0) {stop-process -force -name windowsterminal}",
-    "post_uninstall": ". \"$bucketsdir\\chris\\scripts\\$app\\uninstall.ps1\"",
+    "post_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": {
         "url": "https://api.github.com/repositories/100060912/releases",
         "jsonpath": "$[?(@.prerelease == true)].tag_name",

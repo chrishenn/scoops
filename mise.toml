@@ -1,10 +1,10 @@
 [tools]
 pkl = "latest"
-prettier = "latest"
+hk = {version = "latest", os = ["linux"]}
 
 # mise is not detecting pwsh shell or os=windows
-hk = {version = "latest", os = ["linux"]}
-markdownlint-cli2 = {version = "latest", os = ["linux"]}
+# prettier = "latest"
+# markdownlint-cli2 = {version = "latest", os = ["linux"]}
 
 [env]
 # libgit2 doesn't support git extension "refstorage"

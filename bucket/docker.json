@@ -1,19 +1,25 @@
 {
-    "version": "29.0.4",
+    "version": "29.2.0",
     "description": "Docker {cli, engine, compose, buildx} for windows containers",
     "homepage": "https://docs.docker.com/engine",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.0.4.zip",
-            "hash": "de0fcf7960ed894705a93be5fae3a54cd0696eb9b143ebc869fd5753ccf6beb7"
+            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.2.0.zip",
+            "hash": "6d8f2e8d8ff9bbe15dfc41ffd2f1c6a95721c5e178de8619ada9084f72ee363e"
         }
     },
-    "depends": ["docker-compose", "docker-buildx"],
+    "depends": [
+        "docker-compose",
+        "docker-buildx"
+    ],
     "extract_dir": "docker",
-    "bin": ["docker.exe", "dockerd.exe"],
-    "post_install": ". \"$bucketsdir\\$bucket\\scripts\\$app\\install.ps1\"",
-    "pre_uninstall": ". \"$bucketsdir\\chris\\scripts\\$app\\uninstall.ps1\"",
+    "bin": [
+        "docker.exe",
+        "dockerd.exe"
+    ],
+    "post_install": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install",
+    "pre_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": {
         "github": "https://github.com/moby/moby",
         "regex": "docker-v([\\d.]+)"

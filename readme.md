@@ -3,57 +3,97 @@
 [![Tests](https://github.com/chrishenn/scoops/actions/workflows/ci.yml/badge.svg)](https://github.com/chrishenn/scoops/actions/workflows/ci.yml)
 [![Excavator](https://github.com/chrishenn/scoops/actions/workflows/excavator.yml/badge.svg)](https://github.com/chrishenn/scoops/actions/workflows/excavator.yml)
 
-## Usage
+My scoop manifests.
+
+Be aware that these manifests are highly customized, and may not behave as you'd expect, or be appropriate for
+general use.
+
+These include:
+- public manifests customized with my personal settings
+- public packages with no scoop manifest in a well-known bucket
+- public manifests with nominal bugfixes
+- manifests that consume my private releases
+
+These repos are meant to be used together:
+
+- https://github.com/chrishenn/unattend
+- https://github.com/chrishenn/chplib
+- https://github.com/chrishenn/scoops
+- https://github.com/chrishenn/drivers
+
+The unattend scripts attempt to install and configure a {working, debloated, de-spyware'd} windows 11 OS for development
+with no manual intervention. This scoops repo, then, uses the scoop packaging framework to provide customized software
+installs.
+
+
+## usage
 
 ```pwsh
 scoop bucket add chris https://github.com/chrishenn/scoops
-
-# list packages offered by the `chris` bucket
-scoop search | grep chris
-
-chris/a4dj        #
-chris/amesettings #
-chris/appfetch    #
-chris/docker      #
-chris/epatcher    # <-- customized with my settings
-chris/hotkey      #
-chris/lnks        #
-chris/nvapp       #
-chris/nvdriver    # <-- customized to do a minimal install
-chris/openshell   # <-- customized with my settings
-chris/opgui       #
-chris/portable    # <-- installs a private release
-chris/powertoys   # <-- customized with my settings
-chris/ssh         # <-- needs more testing
-chris/steinberg   #
-chris/uavolt      #
-chris/wt          # <-- customized with my settings
-chris/zen         #
-chris/zenprof     # <-- installs zen with my settings
 ```
 
+```pwsh
+# list packages offered by the `chris` bucket
+scoop search | grep chris
+```
+
+
+## references
+
 - Native Instruments Audio 4 DJ Driver (<https://www.native-instruments.com>)
+  - their website is broken, so I've hosted their driver installer on github, and it is consumed by this manifest
+- AMD chipset driver (<https://www.amd.com/en/support/downloads/drivers.html>)
+- AMD graphics driver (<https://www.amd.com/en/support/downloads/drivers.html>)
 - Ame Settings (<https://github.com/Ameliorated-LLC/ame-settings-cli>)
 - Ame AppFetch (<https://github.com/Ameliorated-LLC/appfetch>)
+- Docker (<https://www.docker.com/>)
+  - installs pre-requisites for windows containers on windows client {containers, microsoft-Hyper-V}
+  - installs scoop docker {cli, engine, compose, buildx}
+  - registers the docker service and sets it to autostart
 - Explorer Patcher (<https://github.com/valinet/ExplorerPatcher>)
+  - customized
+- Everything (<https://www.voidtools.com/>)
+- File Pilot (<https://filepilot.tech/>)
+- Hotkey (<https://github.com/chrishenn/hotkey>)
+  - my hotkeys
 - Windows Actions Lnks (<https://github.com/chrishenn/lnks>)
+  - my windows shortcut lnks for power actions {hibernate, recycle bin, restart, shutdown, sleep}
 - Nvidia App (<https://www.nvidia.com/en-us/software/nvidia-app/>)
+  - hides the nvidia tray icon
 - Nvidia Driver (<https://www.nvidia.com/en-us/drivers/>)
+  - fixes missing uninstaller from existing manifest
+  - customized to do a minimal install
+  - hides the nvidia tray icon
 - Open Shell (<https://github.com/Open-Shell/Open-Shell-Menu>)
+  - customized
 - 1Password Desktop (<https://releases.1password.com/windows/stable/>)
+- Portable
+  - installs a private release of portable apps
 - Powertoys (<https://github.com/microsoft/PowerToys>)
+  - customized
+- OpenSSH (<https://github.com/PowerShell/Win32-OpenSSH/releases/>)
+  - fixed install location to work on my machine (with UAC disabled)
+  - installs sshd and sets it to autostart
+  - configures git to use this installation of openssh
 - Yamaha Steinberg USB Driver (<https://usa.yamaha.com/support/updates/yamaha_steinberg_usb_driver_for_win.html>)
 - Universal Audio Volt Driver (<https://www.uaudio.com/pages/volt>)
+  - they don't publish a driver installer, so I've extracted this one from some bloatware they do ship
+- VSCode (<https://github.com/microsoft/vscode>)
+  - customized
 - Microsoft Terminal (<https://github.com/microsoft/terminal>)
+  - customized
+- Zen Browser (<https://zen-browser.app/>)
+  - customized
+
+
+## dev
 
 compute hash for file, to include in scoop manifest
 
 ```shell
-# PowerShell
+# pwsh
 Get-FileHash file.zip
-# Cmd
-certutil -hashfile file.zip SHA256
-# Bash
+# bash
 sha256sum file.zip
 ```
 
@@ -61,11 +101,9 @@ run bucket tests locally (windows only)
 
 ```pwsh
 # necessary to repeat for each shell in {pwsh, powershell}
-powershell
 Install-Module Pester -Force -SkipPublisherCheck
 install-module -force buildhelpers
-cd $HOME\scoop\buckets\chris
-.\bin\test.ps1
+& "$HOME\scoop\buckets\chris\bin\test.ps1"
 ```
 
 run github workflow tests locally (windows only)
@@ -80,17 +118,29 @@ act -j test_pwsh -s GITHUB_TOKEN=$(op read op://homelab/github/credential) -P wi
 act -j test_powershell -s GITHUB_TOKEN=$(op read op://homelab/github/credential) -P windows-latest=-self-hosted
 ```
 
----
+install manifests that download private releases
 
-## Notes
+```pwsh
+# use a github pat with read access to the private repo's releases
+scoop config gh_token (op read "op://homelab/github/credential")
+scoop install chris/portable chris/zenprof
+```
 
-### Ame Settings, App Fetch (amesettings, appfetch)
+update manifests that download private releases
 
-Pulled directly from the windows ameliorated project:
+```pwsh
+.\bin\checkver.ps1
+# portable: 0.0.2 (scoop version is 0.0.1) autoupdate available
 
-- <https://amelabs.net/>
-- <https://github.com/Ameliorated-LLC/ame-settings-cli>
-- <https://github.com/Ameliorated-LLC/appfetch>
+.\bin\checkver.ps1 portable -u
+git pull
+git add --all
+git commit -am "portable: Update to version 0.0.2"
+git push
+```
+
+
+## notes
 
 ### Explorer Patcher (epatcher)
 
@@ -98,46 +148,35 @@ This epatcher manifest for explorerpatcher is a little rough around the edges. T
 be run silently - it insists on opening win32 dialog windows to confirm the uninstall.
 
 If the user attempts to `scoop uninstall epatcher` from a noninteractive shell (say, a scheduled task or an ssh connection),
-the pre-uninstall script _should_ detect that it cannot launch a window from that shell, and error correctly.
+the pre-uninstall script _should_ detect that it cannot launch a window from that shell, and abort the uninstallation with a helpful message.
 
-If the user attempt the uninstall from an interactive shell but does not proceed with uninstallation via the dialog windows,
+If the user attempts the uninstall from an interactive shell but does not proceed with uninstallation via the dialog windows,
 _then scoop will assume the uninstallation was successfull, while the installation persists under C:\program files\explorerpatcher._
 
-In this case, the user can just `scoop install chris/epatcher` once more (the explorer patcher install / upgrade is idempotent) and uninstall again, confirming uninstallation
-the second time.
+In this case, the user can just `scoop install chris/epatcher` once more (the install is idempotent) and uninstall again, confirming uninstallation the second time (`scoop uninstall epatcher`).
 
 ### Open Shell (openshell)
 
-I install this with my custom settings applies and install the fluent-ame.skin7 from the ameliorated project (see above).
+- <https://github.com/Open-Shell/Open-Shell-Menu>
+- <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/open-shell-np.json>
 
-The other noteworthy change I've made to the `openshell` manifest from the `nonportable` bucket is to add a parameter to
-the installer invocation; namely
-
-```pwsh
-ADDLOCAL=StartMenu
-```
+I install the fluent-ame.skin7 from the ameliorated project. I also updated the nonportable manifest by installing with `ADDLOCAL=StartMenu`.
 
 This switch turns off openshell's installation of `classic explorer`, which interferes with my preferred explorer
 modifications (explorerpatcher).
 
-Credit
-
-- <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/open-shell-np.json>
-
 ### Nvidia App (nvapp)
-
-Credit
 
 - <https://github.com/emilwojcik93/Install-NvidiaApp>
 - <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/nvidia-display-driver-dch-np.json>
 - <https://www.elevenforum.com/t/fix-for-nvidia-taskbar-icon-missing.1853/>
 
-This app will not launch if ALL of its components are not installed. That includes nvtelemetry and
-frameviewsdk.
+This app will not launch if ALL of its components are not installed. That includes nvtelemetry and frameviewsdk.
 
-### Nvidia Display Driver (nvdriver)
+I updated the nvapp uninstaller to also uninstall the frameviewSDK. In my setup, the nvapp is the only component that
+installs the frameviewSDK and then (rudely) fails to uninstall it.
 
-Credit
+### Nvidia Display Driver (nvgfx)
 
 - <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/nvidia-display-driver-dch-np.json>
 - <https://github.com/ZenitH-AT/nvidia-update>
@@ -147,19 +186,14 @@ Credit
   - Source - <https://stackoverflow.com/a>
   - Posted by <https://stackoverflow.com/users/7571258/zett42>
 
-I've copied the upgrade regex directly from the Nonportable nvidia-display-driver-dch-np.json.
+I've tweaked the checkver regex, initially copied directly from the Nonportable manifest for the same.
 
 My tweaks to the above scripts means that this manifest installs only the nvidia Display.Driver; no HDAudio, no
 FrameviewSDK, etc. If want or need driver components other than the Display.Driver, then this manifest won't work for you.
 
-The uninstaller does work, which is a nice upgrade from the nonportable manifest.
+The uninstaller also works, which is a nice upgrade from the nonportable manifest.
 
----
 
-### Private Sources
+## todo
 
-The chris/portable, chris/zenprof manifests pull from private repos, and a github token is necessary for download
-
-```bash
-scoop config gh_token '<token>'
-```
+- the steinberg installer runs noninteractive but opens a window

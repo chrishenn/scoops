@@ -1,0 +1,19 @@
+{
+    "version": "2.9.1",
+    "description": "Use your phone as a webcam",
+    "homepage": "https://iriun.com/",
+    "license": "https://github.com/notPlancha/bucket/blob/master/bucket/Iriun-Webcam.licence.txt",
+    "url": "https://iriun.com/IriunWebcam-2.9.1.exe#/setup.exe",
+    "hash": "B6E58934D402D1F8D741444891004BD3F8D84FE558EAD43EE2BE8FE53F98A72B",
+    "bin": "IriunWebcam.exe",
+    "installer": {
+        "script": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install"
+    },
+    "uninstaller": {
+        "script": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall"
+    },
+    "checkver": "<a class=\"button.*href=\"IriunWebcam-(\\d.+)\\.exe\">Webcam for Windows",
+    "autoupdate": {
+        "url": "https://iriun.com/IriunWebcam-$version.exe#/setup.exe"
+    }
+}
