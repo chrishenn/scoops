@@ -1,13 +1,13 @@
 {
-    "version": "8.12.2-22",
+    "version": "8.12.6-31",
     "description": "1Password Desktop GUI Beta Release",
     "homepage": "https://1password.com/",
     "license": {
         "identifier": "Shareware",
         "url": "https://1password.com/legal/terms-of-service/"
     },
-    "url": "https://downloads.1password.com/win/1PasswordSetup-8.12.2-22.BETA.msi",
-    "hash": "6eda7a7c05e954bac6400f09e7895496368518ca7b8638bd1d7ec3f954486846",
+    "url": "https://downloads.1password.com/win/1PasswordSetup-8.12.6-31.BETA.msi",
+    "hash": "a09683d2c79958120b32e5a8658be5096368bca7e1f3f4defdd9bcf95ce2616f",
     "extract_dir": "ProgramFiles64Folder\\1Password",
     "shortcuts": [
         [
