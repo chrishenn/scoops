@@ -1,12 +1,12 @@
 {
-    "version": "29.2.0",
+    "version": "29.8.2",
     "description": "Docker {cli, engine, compose, buildx} for windows containers",
     "homepage": "https://docs.docker.com/engine",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.2.0.zip",
-            "hash": "6d8f2e8d8ff9bbe15dfc41ffd2f1c6a95721c5e178de8619ada9084f72ee363e"
+            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.8.2.zip",
+            "hash": "e8a956a1f117764dd79f6b1964eca0bb451088fe2db5ecce93ed0e01e5d814b3"
         }
     },
     "depends": [

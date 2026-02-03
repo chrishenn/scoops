@@ -14,7 +14,8 @@ function reg_app (
 function install {
     if (-not (reg_app 'steinberg')) {
         $instdir = $fname.split('.')[0]
-        start-process "$dir\$instdir\setup.exe" -wait -NoNewWindow -a '/i /quiet /passive /S /qn /silent'
+        $arg = '/SP- /SILENT /VERYSILENT /SUPPRESSMSGBOXES /NOCANCEL /NORESTART /CLOSEAPPLICATIONS /FORCECLOSEAPPLICATIONS'
+        start-process "$dir\$instdir\setup.exe" -wait -NoNewWindow -a $arg
     }
 }
 

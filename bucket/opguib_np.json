@@ -1,17 +1,17 @@
 {
-    "version": "8.12.2-22",
+    "version": "8.12.40-27",
     "description": "1Password Desktop GUI Beta Release Nonportable (works with custom browser integrations)",
     "homepage": "https://1password.com/",
     "license": {
         "identifier": "Shareware",
         "url": "https://1password.com/legal/terms-of-service/"
     },
-    "url": "https://downloads.1password.com/win/1PasswordSetup-8.12.2-22.BETA.msi#/setup.msi_",
-    "hash": "6eda7a7c05e954bac6400f09e7895496368518ca7b8638bd1d7ec3f954486846",
+    "url": "https://downloads.1password.com/win/1PasswordSetup-8.12.40-27.BETA.msi#/setup.msi_",
+    "hash": "b3fabb150890bd5f557125d4542958315637d61366b62088c3e1f06d2bfa033a",
     "installer": {
         "script": "start-process -wait msiexec -a \"/i $dir\\setup.msi_ /qn\""
     },
-    "pre_uninstall": "if (Get-Process -Name '1password' -ea 0) {stop-process -name 1password -force -ea 0}",
+    "pre_uninstall": "if (Get-Process -name 1password -ea 0) {stop-process -name 1password -force -ea 0; wait-process -name 1password -ea 0; start-sleep 0.5}",
     "uninstaller": {
         "script": "start-process -wait msiexec -a \"/x $dir\\setup.msi_ /qn\""
     },

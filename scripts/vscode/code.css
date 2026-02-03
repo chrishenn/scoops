@@ -1,6 +1,6 @@
 /* Code comment style */
 .mtk3 {
-    font-family: "Fira Code", monospace !important;
+    font-family: 'Fira Code', monospace !important;
     color: #008c7d !important;
 }
 
@@ -190,7 +190,7 @@
     max-width: none !important;
 }
 .letterpress {
-    background-image: url("") !important;
+    background-image: url('') !important;
     background-repeat: no-repeat no-repeat !important;
     background-position: center center !important;
     background-size: contain !important;

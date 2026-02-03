@@ -1,5 +1,6 @@
 param (
     [switch] $pre_install,
+    [switch] $install,
     [switch] $post_install,
     [switch] $uninstall
 )
@@ -9,6 +10,10 @@ function pre_install {
     Start-Process 7z -wait -NoNewWindow -a "x -bso0 -bsp1 -bse1 -aoa $dir\dl.7z_ $files -o$dir"
     $cfg = Get-Content "$dir\setup.cfg" | Where-Object {$_ -notmatch 'name=(.*)(EulaHtmlFile|FunctionalConsentFile|PrivacyPolicyFile)'}
     Set-Content "$dir\setup.cfg" "$cfg" -Encoding UTF8 -Force
+}
+
+function install {
+    Start-Process -wait "$dir\setup.exe" -a '-s -n -noeula -nofinish -clean'
 }
 
 function svc_rm ($name) {
@@ -47,6 +52,10 @@ function post_install {
     # write-host -f cyan 'To unhide the nvidia tray icon, run:'
     # write-host -f cyan "$bucketsdir\chris\scripts\nvidia\tray_unhide.ps1"
     # write-host ''
+
+    write-host ''
+    write-host -f y 'NOTE: The nvgfx installer resets your gfx settings - you need to manually re-apply them'
+    write-host ''
 }
 
 function uninstall {
@@ -70,6 +79,8 @@ function uninstall {
 function main {
     if ($pre_install) {
         pre_install
+    } elseif ($install) {
+        install
     } elseif ($post_install) {
         post_install
     } elseif ($uninstall) {
