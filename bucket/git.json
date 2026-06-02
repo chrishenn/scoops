@@ -72,7 +72,7 @@
     "script": [
       "if ($cmd -ne 'uninstall') {return}",
       "reg import \"$dir\\uninstall-context.reg\" *> $null",
-      "reg import \"$dir\\uninstall-associations.reg\" *> $null",
+      "reg import \"$dir\\uninstall-associations.reg\" *> $null"
     ]
   },
   "checkver": {
