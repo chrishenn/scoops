@@ -59,6 +59,8 @@ function uninstall {
     stop-service -force sshd
     if (get-process -name sshd -ea 0) {
         stop-process -force -name sshd -ea 0
+        wait-process -name sshd -ea 0
+        start-sleep 0.5
     }
     C:\Windows\System32\OpenSSH\uninstall-sshd.ps1
 }

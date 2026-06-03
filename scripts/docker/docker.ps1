@@ -47,9 +47,12 @@ function uninstall {
     }
     if (get-process -name dockerd -ea 0) {
         [void](stop-process -name dockerd -ea 0)
+        wait-process -name dockerd -ea 0
     }
     if (get-process -name docker -ea 0) {
         [void](stop-process -name docker -ea 0)
+        wait-process -name docker -ea 0
+        start-sleep 0.5
     }
     dockerd --unregister-service
 }
