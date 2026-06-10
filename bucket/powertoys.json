@@ -48,6 +48,8 @@
         "if (get-process powertoys -ea 0) {stop-process -name powertoys -force -ea 0; wait-process -name powertoys -ea 0; start-sleep 0.5}",
         "if (get-process powertoys.imageresizer -ea 0) {stop-process -name powertoys.imageresizer -force -ea 0; wait-process -name powertoys.imageresizer -ea 0; start-sleep 0.5}",
         "if (get-process powertoys.settings -ea 0) {stop-process -name powertoys.settings -force -ea 0; wait-process -name powertoys.settings -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.peek.ui -ea 0) {stop-process -name powertoys.peek.ui -force -ea 0; wait-process -name powertoys.peek.ui -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.quickaccess -ea 0) {stop-process -name powertoys.quickaccess -force -ea 0; wait-process -name powertoys.quickaccess -ea 0; start-sleep 0.5}",
     ],
     "uninstaller": {
       "script": [
