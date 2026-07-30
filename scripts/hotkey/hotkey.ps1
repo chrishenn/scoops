@@ -58,7 +58,7 @@ function install {
     if (-not (interactive)) {
         write-host ''
         write-host ''
-        write-host -f yellow "Installing from non-interactive shell: binaries will run at next login"
+        write-host -f y "Installing from non-interactive shell: binaries will run at next login"
         write-host ''
     }
 }

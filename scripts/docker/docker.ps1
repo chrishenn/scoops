@@ -18,7 +18,7 @@ function containers_client ($name) {
         }
     }
     if ($need_reboot) {
-        Write-host -F yellow "REBOOT REQUIRED TO ENABLE CONTAINER FEATURES"
+        Write-host -F y "REBOOT REQUIRED TO ENABLE CONTAINER FEATURES"
     }
 }
 
@@ -41,7 +41,7 @@ function install {
 function uninstall {
     write-host ''
     write-host ''
-    Write-host -f yellow 'note: windows containers features will not be removed'
+    Write-host -f y 'note: windows containers features will not be removed'
     if (get-service -name docker -ea 0) {
         [void](stop-service -name docker -ea 0)
     }
