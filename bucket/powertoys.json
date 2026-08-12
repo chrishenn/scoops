@@ -1,10 +1,10 @@
 {
-    "version": "0.101.2222.0",
+    "version": "0.101.2241.0",
     "description": "Powertoys with my custom settings added",
     "homepage": "https://github.com/microsoft/PowerToys",
     "license": "MIT",
-    "url": "https://github.com/microsoft/PowerToys/releases/download/v0.101.2222.0/PowerToysUserSetup-0.101.2222.0-x64.exe",
-    "hash": "f74ff2a89ea37d582f7e18e34ea6e40554c842fa0405725f68969805e6da0da9",
+    "url": "https://github.com/microsoft/PowerToys/releases/download/v0.101.2241.0/PowerToysUserSetup-0.101.2241.0-x64.exe",
+    "hash": "e16f871f1d8481084999ecdde5550db777e577a372aa8798c3f5187020a97f53",
     "installer": {
         "script": [
             "Expand-DarkArchive \"$dir\\$fname\" \"$dir\\.tmp\"",
