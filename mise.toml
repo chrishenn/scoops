@@ -5,7 +5,3 @@ hk = {version = "latest", os = ["linux"]}
 # mise is not detecting pwsh shell or os=windows
 # prettier = "latest"
 # markdownlint-cli2 = {version = "latest", os = ["linux"]}
-
-[env]
-# libgit2 doesn't support git extension "refstorage"
-HK_LIBGIT2 = 0
