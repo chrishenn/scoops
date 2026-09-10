@@ -38,7 +38,7 @@ scoop search | grep chris
 # packages
 
 | name        | program                              | source                                                  | notes                                                                                                            |
-| ----------- | ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+|-------------|--------------------------------------|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | a4dj        | Native Instruments Audio 4 DJ Driver | <https://www.native-instruments.com>                    | Official website is broken; I host their installer on github until it's fixed                                    |
 | amdchipset  | AMD chipset driver                   | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
 | amdgfx      | AMD graphics driver                  | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
