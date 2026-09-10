@@ -13,8 +13,8 @@
     "checkver": {
         "script": [
             "$src = 'https://filepilot.tech/download/latest'",
-            "$html = curl.exe -I $src",
-            "$ver = [regex]::Matches($html, 'v([\\d]+\.[\\d]+\.[\\d]+)')",
+            "$html = curl.exe -IsSq $src",
+            "$ver = [regex]::Matches($html, 'v([\\d.]+)')",
             "$url = [regex]::Matches($html, 'Location: (\\S+)')",
             "[string]::Format('{0}|{1}', $ver.groups[1].value, $url.groups[1].value)"
         ],
