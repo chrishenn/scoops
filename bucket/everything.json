@@ -19,12 +19,7 @@
     },
     "post_install": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install",
     "bin": "Everything.exe",
-    "shortcuts": [
-        [
-            "Everything.exe",
-            "Everything"
-        ]
-    ],
+    "shortcuts": [["Everything.exe", "Everything"]],
     "pre_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": "Download Everything ([\\d.]+)",
     "autoupdate": {

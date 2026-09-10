@@ -1,6 +1,10 @@
 [tools]
 pkl = "latest"
-hk = {version = "latest", os = ["linux"]}
+hk = "latest"
+prettier = "latest"
+just = "latest"
+markdownlint-cli2 = "latest"
+bun = "latest"
 
 # mise is not detecting pwsh shell or os=windows
 # prettier = "latest"

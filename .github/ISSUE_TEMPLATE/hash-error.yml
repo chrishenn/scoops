@@ -1,6 +1,6 @@
 name: 🔢 Hash Error
 description: Open an issue about a package's hash is incorrect.
-labels: ["bug"]
+labels: ['bug']
 body:
   - type: checkboxes
     attributes:

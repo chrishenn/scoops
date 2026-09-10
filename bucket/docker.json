@@ -9,15 +9,9 @@
             "hash": "bca70bfcddb4eed5bb8af5c15a1fb583b95edacf6096152e20a621ae68c871cb"
         }
     },
-    "depends": [
-        "docker-compose",
-        "docker-buildx"
-    ],
+    "depends": ["docker-compose", "docker-buildx"],
     "extract_dir": "docker",
-    "bin": [
-        "docker.exe",
-        "dockerd.exe"
-    ],
+    "bin": ["docker.exe", "dockerd.exe"],
     "post_install": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install",
     "pre_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": {

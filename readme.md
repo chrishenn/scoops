@@ -9,6 +9,7 @@ Be aware that these manifests are highly customized, and may not behave as you'd
 general use.
 
 These include:
+
 - public manifests customized with my personal settings
 - public packages with no scoop manifest in a well-known bucket
 - public manifests with nominal bugfixes
@@ -16,10 +17,10 @@ These include:
 
 These repos are meant to be used together:
 
-- https://github.com/chrishenn/unattend
-- https://github.com/chrishenn/chplib
-- https://github.com/chrishenn/scoops
-- https://github.com/chrishenn/drivers
+- <https://github.com/chrishenn/unattend>
+- <https://github.com/chrishenn/chplib>
+- <https://github.com/chrishenn/scoops>
+- <https://github.com/chrishenn/drivers>
 
 # usage
 
@@ -36,53 +37,53 @@ scoop search | grep chris
 
 # packages
 
-| name        | program                              | source                                                | notes                                                                                                            |
-|-------------|--------------------------------------|-------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| a4dj        | Native Instruments Audio 4 DJ Driver | https://www.native-instruments.com                    | Official website is broken; I host their installer on github until it's fixed                                    |
-| amdchipset  | AMD chipset driver                   | https://www.amd.com/en/support/downloads/drivers.html |                                                                                                                  |
-| amdgfx      | AMD graphics driver                  | https://www.amd.com/en/support/downloads/drivers.html |                                                                                                                  |
-| amesettings | AME settings TUI                     | https://github.com/Ameliorated-LLC/ame-settings-cli   |                                                                                                                  |
-| appfetch    | AME appfetch TUI                     | https://github.com/Ameliorated-LLC/appfetch           |                                                                                                                  |
-| audiorelay  | Audio relay                          | https://audiorelay.net                                | Minimal install (program and virtual devices only)                                                               |
-| chplib      | Chris' Powershell Library            | https://github.com/chrishenn/chplib                   |                                                                                                                  |
-| docker      | Docker                               | https://www.docker.com                                | Installs {containers, microsoft-Hyper-V, cli, engine, compose, buildx, docker service}                           |
-| epatcher    | Explorer Patcher                     | https://github.com/valinet/ExplorerPatcher            | Installs my personal settings. Requires interactive shell. [1]                                                   |
-| everything  | Everything                           | https://www.voidtools.com                             | Installs my personal settings                                                                                    |
-| fcast       | Fcast Sender                         | https://fcast.org                                     | Installs dependencies {yt-dlp, ffmpeg-yt-dlp-nightly, deno}                                                      |
-| fluxer      | Fluxer                               | https://fluxer.app                                    |                                                                                                                  |
-| fpilot      | File Pilot                           | https://filepilot.tech                                |                                                                                                                  |
-| git         | Git                                  | https://gitforwindows.org                             | Uninstaller kills running instances                                                                              |
-| hotkey      | Chris' Hotkeys                       | https://github.com/chrishenn/hotkey                   | Installs my personal Autohotkey hotkeys. Registers them to autorun on login.                                     |
-| intelbt     | Intel Bluetooth Driver               | https://www.intel.com                                 | For certain Intel bluetooth/wifi nics [2]                                                                        |
-| intelgfx    | Intel Graphics Driver                | https://www.intel.com                                 | For 11th-14th gen Intel igpus. Uninstalls: {cplspcon dsaservice dsaupdateservice igccservice, support-assistant} |
-| intelhid    | Intel Human Interface Driver         | https://github.com/chrishenn/drivers                  | For recent intel chipsets                                                                                        |
-| intelwifi   | Intel Wifi Driver                    | https://www.intel.com                                 | For certain Intel bluetooth/wifi nics [2]                                                                        |
-| iriun       | Iriun Webcam                         | https://iriun.com                                     |                                                                                                                  |
-| lnks        | Power Actions Links                  | https://github.com/chrishenn/lnks                     | My windows shortcut lnks for power actions {hibernate, recycle bin, restart, shutdown, sleep}                    |
-| mpv         | MPV                                  | https://mpv.io                                        | Installs my custom settings                                                                                      |
-| nvapp       | Nvidia App                           | https://www.nvidia.com/en-us/software/nvidia-app      | Hides the nvidia tray icon [3]                                                                                   |
-| nvgfx       | Nvidia Graphics Driver               | https://www.nvidia.com/en-us/drivers                  | Minimal install (driver only). Scoop uninstall works. Hides the nvidia tray icon. [4]                            |
-| openshell   | Open Shell                           | https://github.com/Open-Shell/Open-Shell-Menu         | Installs start menu only. Customized with my personal settings.                                                  |
-| opgui       | 1Password Desktop                    | https://releases.1password.com/windows/stable         |                                                                                                                  |
-| opgui_np    | 1Password Desktop Nonportable        | https://releases.1password.com/windows/stable         | Integrates with browser extensions                                                                               |
-| opguib      | 1Password Desktop Beta               | https://releases.1password.com/windows/beta           |                                                                                                                  |
-| opguib_np   | 1Password Desktop Beta Nonportable   | https://releases.1password.com/windows/beta           | Integrates with browser extensions                                                                               |
-| pangolin    | Pangolin Client                      | https://github.com/fosrl/windows                      |                                                                                                                  |
-| pdanet      | PDANet                               | https://pdanet.co                                     | Requires interactive shell                                                                                       |
-| portable    | Chris' Portable Apps                 | https://github.com/chrishenn/portable                 | Installs my private distribution of portable apps                                                                |
-| powertoys   | Powertoys                            | https://github.com/microsoft/PowerToys                | Installs my custom settings                                                                                      |
-| rtklan      | Realtek Lan Driver                   | https://github.com/chrishenn/realtek                  | Official website is broken; I host their install on github until it's fixed                                      |
-| ssh         | SSH                                  | https://github.com/PowerShell/Win32-OpenSSH           | Fixed install location; installs sshd as autostart; configures git to use this ssh instance                      |
-| steinberg   | Yamaha Steinberg USB Driver          | https://o.steinberg.net                               |                                                                                                                  |
-| termix      | Termix Client GUI                    | https://github.com/Termix-SSH/Termix                  |                                                                                                                  |
-| uavolt      | Universal Audio Volt Driver          | https://www.uaudio.com                                | Minimal installer extracted from official blotware                                                               |
-| vscode      | Vscode                               | https://github.com/microsoft/vscode                   | Customized with my personal settings                                                                             |
-| wt          | Windows Terminal                     | https://github.com/microsoft/terminal                 | Customized with my personal settings                                                                             |
-| zen         | Zen Browser                          | https://www.zen-browser.app                           | Fixes a broken program shortcut. Uninstaller kills running instances.                                            |
-| zen_np      | Zen Browser Nonportable              | https://www.zen-browser.app                           | Integrates with 1Password Desktop                                                                                |
-| zenprof     | Chris' Zen Browser Profile           | https://github.com/chrishenn/zenprof                  | Installs my private distribution of my zen browser profile                                                       |
+| name        | program                              | source                                                  | notes                                                                                                            |
+| ----------- | ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| a4dj        | Native Instruments Audio 4 DJ Driver | <https://www.native-instruments.com>                    | Official website is broken; I host their installer on github until it's fixed                                    |
+| amdchipset  | AMD chipset driver                   | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
+| amdgfx      | AMD graphics driver                  | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
+| amesettings | AME settings TUI                     | <https://github.com/Ameliorated-LLC/ame-settings-cli>   |                                                                                                                  |
+| appfetch    | AME appfetch TUI                     | <https://github.com/Ameliorated-LLC/appfetch>           |                                                                                                                  |
+| audiorelay  | Audio relay                          | <https://audiorelay.net>                                | Minimal install (program and virtual devices only)                                                               |
+| chplib      | Chris' Powershell Library            | <https://github.com/chrishenn/chplib>                   |                                                                                                                  |
+| docker      | Docker                               | <https://www.docker.com>                                | Installs {containers, microsoft-Hyper-V, cli, engine, compose, buildx, docker service}                           |
+| epatcher    | Explorer Patcher                     | <https://github.com/valinet/ExplorerPatcher>            | Installs my personal settings. Requires interactive shell. [1]                                                   |
+| everything  | Everything                           | <https://www.voidtools.com>                             | Installs my personal settings                                                                                    |
+| fcast       | Fcast Sender                         | <https://fcast.org>                                     | Installs dependencies {yt-dlp, ffmpeg-yt-dlp-nightly, deno}                                                      |
+| fluxer      | Fluxer                               | <https://fluxer.app>                                    |                                                                                                                  |
+| fpilot      | File Pilot                           | <https://filepilot.tech>                                |                                                                                                                  |
+| git         | Git                                  | <https://gitforwindows.org>                             | Uninstaller kills running instances                                                                              |
+| hotkey      | Chris' Hotkeys                       | <https://github.com/chrishenn/hotkey>                   | Installs my personal Autohotkey hotkeys. Registers them to autorun on login.                                     |
+| intelbt     | Intel Bluetooth Driver               | <https://www.intel.com>                                 | For certain Intel bluetooth/wifi nics [2]                                                                        |
+| intelgfx    | Intel Graphics Driver                | <https://www.intel.com>                                 | For 11th-14th gen Intel igpus. Uninstalls: {cplspcon dsaservice dsaupdateservice igccservice, support-assistant} |
+| intelhid    | Intel Human Interface Driver         | <https://github.com/chrishenn/drivers>                  | For recent intel chipsets                                                                                        |
+| intelwifi   | Intel Wifi Driver                    | <https://www.intel.com>                                 | For certain Intel bluetooth/wifi nics [2]                                                                        |
+| iriun       | Iriun Webcam                         | <https://iriun.com>                                     |                                                                                                                  |
+| lnks        | Power Actions Links                  | <https://github.com/chrishenn/lnks>                     | My windows shortcut lnks for power actions {hibernate, recycle bin, restart, shutdown, sleep}                    |
+| mpv         | MPV                                  | <https://mpv.io>                                        | Installs my custom settings                                                                                      |
+| nvapp       | Nvidia App                           | <https://www.nvidia.com/en-us/software/nvidia-app>      | Hides the nvidia tray icon [3]                                                                                   |
+| nvgfx       | Nvidia Graphics Driver               | <https://www.nvidia.com/en-us/drivers>                  | Minimal install (driver only). Scoop uninstall works. Hides the nvidia tray icon. [4]                            |
+| openshell   | Open Shell                           | <https://github.com/Open-Shell/Open-Shell-Menu>         | Installs start menu only. Customized with my personal settings.                                                  |
+| opgui       | 1Password Desktop                    | <https://releases.1password.com/windows/stable>         |                                                                                                                  |
+| opgui_np    | 1Password Desktop Nonportable        | <https://releases.1password.com/windows/stable>         | Integrates with browser extensions                                                                               |
+| opguib      | 1Password Desktop Beta               | <https://releases.1password.com/windows/beta>           |                                                                                                                  |
+| opguib_np   | 1Password Desktop Beta Nonportable   | <https://releases.1password.com/windows/beta>           | Integrates with browser extensions                                                                               |
+| pangolin    | Pangolin Client                      | <https://github.com/fosrl/windows>                      |                                                                                                                  |
+| pdanet      | PDANet                               | <https://pdanet.co>                                     | Requires interactive shell                                                                                       |
+| portable    | Chris' Portable Apps                 | <https://github.com/chrishenn/portable>                 | Installs my private distribution of portable apps                                                                |
+| powertoys   | Powertoys                            | <https://github.com/microsoft/PowerToys>                | Installs my custom settings                                                                                      |
+| rtklan      | Realtek Lan Driver                   | <https://github.com/chrishenn/realtek>                  | Official website is broken; I host their install on github until it's fixed                                      |
+| ssh         | SSH                                  | <https://github.com/PowerShell/Win32-OpenSSH>           | Fixed install location; installs sshd as autostart; configures git to use this ssh instance                      |
+| steinberg   | Yamaha Steinberg USB Driver          | <https://o.steinberg.net>                               |                                                                                                                  |
+| termix      | Termix Client GUI                    | <https://github.com/Termix-SSH/Termix>                  |                                                                                                                  |
+| uavolt      | Universal Audio Volt Driver          | <https://www.uaudio.com>                                | Minimal installer extracted from official blotware                                                               |
+| vscode      | Vscode                               | <https://github.com/microsoft/vscode>                   | Customized with my personal settings                                                                             |
+| wt          | Windows Terminal                     | <https://github.com/microsoft/terminal>                 | Customized with my personal settings                                                                             |
+| zen         | Zen Browser                          | <https://www.zen-browser.app>                           | Fixes a broken program shortcut. Uninstaller kills running instances.                                            |
+| zen_np      | Zen Browser Nonportable              | <https://www.zen-browser.app>                           | Integrates with 1Password Desktop                                                                                |
+| zenprof     | Chris' Zen Browser Profile           | <https://github.com/chrishenn/zenprof>                  | Installs my private distribution of my zen browser profile                                                       |
 
-There are also some experimental driver packages that should be ignored. 
+There are also some experimental driver packages that should be ignored.
 
 # dev
 
@@ -137,11 +138,25 @@ git commit -am "portable: Update to version 0.0.2"
 git push
 ```
 
+Debug regex
+
+```pwsh
+wget -O tmp.html https://example.com
+curl.exe -I https://example.com > tmp.html
+$html = cat tmp.html
+
+$html -match 'expr'
+$matches[0]
+
+echo $html | grep -i 'expr'
+[regex]::Matches($html, 'expr')
+```
+
 ---
 
 # footnotes
 
-[1] epatcher (Explorer Patcher) 
+[1] epatcher (Explorer Patcher)
 
 This epatcher manifest for explorerpatcher is a little rough around the edges. The issue is that the uninstaller cannot
 be run silently - it insists on opening win32 dialog windows to confirm the uninstall.
@@ -155,12 +170,13 @@ _then scoop will assume the uninstallation was successfull, while the installati
 In this case, the user can just `scoop install chris/epatcher` once more (the install is idempotent) and uninstall again, confirming uninstallation the second time (`scoop uninstall epatcher`).
 
 [2] Intel Bluetooth driver for:
+
 - Intel BE213, BE211, BE202, BE201, BE200, AX411, AX211, AX210, AX203, AX201, AX101, 9560, 9462, 9461, 9260
 - Intel Killer BE1775(i/s), BE1750(x/w), BE1750(i/s), AX1690, AX1675, AX1650(i/s), 1550
 
 [3] nvapp (Nvidia App)
 
-refs: 
+refs:
 
 - <https://github.com/emilwojcik93/Install-NvidiaApp>
 - <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/nvidia-display-driver-dch-np.json>
@@ -173,15 +189,15 @@ installs the frameviewSDK and then (rudely) fails to uninstall it.
 
 [4] nvgfx (Nvidia Display Driver)
 
-refs: 
+refs:
 
 - <https://github.com/ScoopInstaller/Nonportable/blob/master/bucket/nvidia-display-driver-dch-np.json>
 - <https://github.com/ZenitH-AT/nvidia-update>
 - <https://github.com/Aetopia/NVIDIA-Driver-Package-Downloader>
 - <https://github.com/lord-carlos/nvidia-update>
 - <https://stackoverflow.com/questions/73416586/silently-uninstall-nvidia-display-driver-using-uninstall-string>
-  - Source - <https://stackoverflow.com/a>
-  - Posted by <https://stackoverflow.com/users/7571258/zett42>
+    - Source - <https://stackoverflow.com/a>
+    - Posted by <https://stackoverflow.com/users/7571258/zett42>
 
 My tweaks to the above scripts means that this manifest installs only the nvidia Display.Driver; no HDAudio, no
 FrameviewSDK, etc. If want or need driver components other than the Display.Driver, then this manifest won't work for you.
