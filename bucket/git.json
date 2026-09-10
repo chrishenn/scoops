@@ -47,6 +47,8 @@
         ["cmd\\git-gui.exe", "Git\\Git GUI"]
     ],
     "pre_uninstall": [
+        "while (get-process -name keyboxd -ea 0) {stop-process -name keyboxd -force -ea 0; wait-process -name keyboxd -ea 0; start-sleep 0.5}",
+        "while (get-process -name git -ea 0) {stop-process -name git -force -ea 0; wait-process -name git -ea 0; start-sleep 0.5}",
         "# Hardlinks cannot work properly here, as this app would create a new file instead of writing the existing config file.",
         "$config_path = Join-Path -Path $dir -ChildPath 'etc\\gitconfig'",
         "$config_path_persisted = Join-Path -Path $persist_dir -ChildPath 'etc\\gitconfig'",
@@ -54,8 +56,7 @@
         "    ensure (Split-Path -Path $config_path_persisted -Parent) | Out-Null",
         "    info \"Saving system-level config to $config_path_persisted...\"",
         "    Copy-Item -Path $config_path -Destination $config_path_persisted -Force",
-        "}",
-        "if (get-process -name git -ea 0) {stop-process -name git -force -ea 0; wait-process -name git -ea 0; start-sleep 0.5}"
+        "}"
     ],
     "uninstaller": {
         "script": [
