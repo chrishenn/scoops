@@ -9,7 +9,6 @@
     "installer": {
         "script": "& \"$dir\\install.ps1\" -install"
     },
-    "pre_uninstall": "& \"$dir\\install.ps1\" -pre_uninstall",
     "uninstaller": {
         "script": "& \"$dir\\install.ps1\" -uninstall"
     },
