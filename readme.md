@@ -22,7 +22,7 @@ These repos are meant to be used together:
 - <https://github.com/chrishenn/scoops>
 - <https://github.com/chrishenn/drivers>
 
-# usage
+## usage
 
 NOTE: the hardcoded bucket name 'chris' is required.
 
@@ -35,10 +35,10 @@ scoop bucket add chris https://github.com/chrishenn/scoops
 scoop search | grep chris
 ```
 
-# packages
+## packages
 
 | name        | program                              | source                                                  | notes                                                                                                            |
-|-------------|--------------------------------------|---------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| ----------- | ------------------------------------ | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | a4dj        | Native Instruments Audio 4 DJ Driver | <https://www.native-instruments.com>                    | Official website is broken; I host their installer on github until it's fixed                                    |
 | amdchipset  | AMD chipset driver                   | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
 | amdgfx      | AMD graphics driver                  | <https://www.amd.com/en/support/downloads/drivers.html> |                                                                                                                  |
@@ -85,7 +85,7 @@ scoop search | grep chris
 
 There are also some experimental driver packages that should be ignored.
 
-# dev
+## dev
 
 Compute hash for file, to include in scoop manifest
 
@@ -155,7 +155,7 @@ echo $html | grep -i 'expr'
 
 ---
 
-# footnotes
+## footnotes
 
 [1] epatcher (Explorer Patcher)
 

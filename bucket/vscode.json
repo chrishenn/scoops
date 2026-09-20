@@ -24,19 +24,10 @@
             "hash": "f2d93057ad037135db0aaaa122050bb3c9f5bba56b0db09e55cd1c905475cb41"
         }
     },
-    "depends": [
-        "sd",
-        "yq",
-        "nerd-fonts/firacode"
-    ],
+    "depends": ["sd", "yq", "nerd-fonts/firacode"],
     "post_install": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install",
     "env_add_path": "bin",
-    "shortcuts": [
-        [
-            "code.exe",
-            "Visual Studio Code"
-        ]
-    ],
+    "shortcuts": [["code.exe", "Visual Studio Code"]],
     "persist": "data",
     "pre_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": {

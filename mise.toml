@@ -1,11 +1,15 @@
 [tools]
 pkl = "latest"
-hk = "latest"
-prettier = "latest"
-just = "latest"
-markdownlint-cli2 = "latest"
-bun = "latest"
+hk = { version = "latest", os = ["linux"] }
+markdownlint-cli2 = { version = "latest", os = ["linux"] }
+oxfmt = "latest"
 
-# mise is not detecting pwsh shell or os=windows
-# prettier = "latest"
-# markdownlint-cli2 = {version = "latest", os = ["linux"]}
+[tasks.fix]
+alias = "f"
+description = "run project formatters declared in hk.pkl in 'fix' mode"
+run = "hk fix --all"
+
+[tasks.check]
+alias = "c"
+description = "run project linters declared in hk.pkl in 'check' mode"
+run = "hk check --all"
