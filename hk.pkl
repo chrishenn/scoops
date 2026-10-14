@@ -2,6 +2,10 @@ amends "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Config.pk
 import "package://github.com/jdx/hk/releases/download/v2.6.0/hk@2.6.0#/Builtins.pkl"
 
 steps {
+  ["pinact_update"] = Builtins.pinact_update
+  ["pinact"] = Builtins.pinact
+  ["jactionlint"] = Builtins.jactionlint
+
   ["oxfmt"] = Builtins.oxfmt
   ["mixed_line_ending"] = Builtins.mixed_line_ending
   ["markdown_lint"] = (Builtins.markdown_lint) {

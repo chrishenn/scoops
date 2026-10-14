@@ -3,6 +3,8 @@ pkl = "latest"
 hk = { version = "latest", os = ["linux"] }
 markdownlint-cli2 = { version = "latest", os = ["linux"] }
 oxfmt = "latest"
+jactionlint = "latest"
+pinact = "latest"
 
 [tasks.fix]
 alias = "f"
