@@ -1,10 +1,10 @@
 {
-    "version": "0.102.2851.0",
+    "version": "0.102.2862.0",
     "description": "Powertoys with my custom settings added",
     "homepage": "https://github.com/microsoft/PowerToys",
     "license": "MIT",
-    "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.2851.0/PowerToysUserSetup-0.102.2851.0-x64.exe",
-    "hash": "e8de59db7799d707d3d6ea7a3a5f82f4d22ba35261b6965a4a268853951553b6",
+    "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.2862.0/PowerToysUserSetup-0.102.2862.0-x64.exe",
+    "hash": "94125a21eeffc72cb5103d5583c79a813030e0c78ac56480bd023c9bad8f0169",
     "installer": {
         "script": [
             "Expand-DarkArchive \"$dir\\$fname\" \"$dir\\.tmp\"",
@@ -68,7 +68,12 @@
         ]
     },
     "post_uninstall": "[void](rm -r -force -ea 0 \"$env:userprofile\\Documents\\powertoys\")",
-    "shortcuts": [["PowerToys.exe", "PowerToys"]],
+    "shortcuts": [
+        [
+            "PowerToys.exe",
+            "PowerToys"
+        ]
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/microsoft/PowerToys/releases",
         "jsonpath": "$[0].assets[*].browser_download_url",
