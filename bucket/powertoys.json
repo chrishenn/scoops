@@ -1,18 +1,10 @@
 {
-    "version": "0.97.1",
+    "version": "0.102.2911.0",
     "description": "Powertoys with my custom settings added",
     "homepage": "https://github.com/microsoft/PowerToys",
     "license": "MIT",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/microsoft/PowerToys/releases/download/v0.97.1/PowerToysUserSetup-0.97.1-x64.exe",
-            "hash": "db4ae01b6a8a9fc056a8a5fa579aa276d5e713455532af33d11895fa381faa0d"
-        },
-        "arm64": {
-            "url": "https://github.com/microsoft/PowerToys/releases/download/v0.97.1/PowerToysUserSetup-0.97.1-arm64.exe",
-            "hash": "b16a1aee649c82da4062b7bd2adbe68a9928cd5ff567bfa9098c0d70ee3653a5"
-        }
-    },
+    "url": "https://github.com/microsoft/PowerToys/releases/download/v0.102.2911.0/PowerToysUserSetup-0.102.2911.0-x64.exe",
+    "hash": "f35a3bb6adee98cc4320b3c3085b2c27c415aae97aabaabd4a2680af6e0baef8",
     "installer": {
         "script": [
             "Expand-DarkArchive \"$dir\\$fname\" \"$dir\\.tmp\"",
@@ -23,7 +15,10 @@
             "} else {",
             "    Expand-MsiArchive \"$dir\\.tmp\\AttachedContainer\\PowerToysSetup.msi\" \"$dir\" -ExtractDir 'PowerToys'",
             "}",
-            "Remove-Item \"$dir\\.tmp\", \"$dir\\$fname\" -Force -Recurse"
+            "Remove-Item \"$dir\\.tmp\", \"$dir\\$fname\" -Force -Recurse",
+            "Get-Content \"$dir\\WinUI3Apps\\hardlinks.txt\" -ErrorAction Ignore | ForEach-Object {",
+            "    Copy-Item \"$dir\\$_\" \"$dir\\WinUI3Apps\\$_\" -Force",
+            "}"
         ]
     },
     "post_install": [
@@ -50,6 +45,13 @@
         "}",
         "[void](mkdir -force -ea 0 \"$env:userprofile\\Documents\\powertoys\\backup\")",
         "cp -force \"$bucketsdir\\$bucket\\scripts\\$app\\settings_*.ptb\" \"$env:userprofile\\Documents\\powertoys\\backup\""
+    ],
+    "pre_uninstall": [
+        "if (get-process powertoys -ea 0) {stop-process -name powertoys -force -ea 0; wait-process -name powertoys -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.imageresizer -ea 0) {stop-process -name powertoys.imageresizer -force -ea 0; wait-process -name powertoys.imageresizer -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.settings -ea 0) {stop-process -name powertoys.settings -force -ea 0; wait-process -name powertoys.settings -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.peek.ui -ea 0) {stop-process -name powertoys.peek.ui -force -ea 0; wait-process -name powertoys.peek.ui -ea 0; start-sleep 0.5}",
+        "if (get-process powertoys.quickaccess -ea 0) {stop-process -name powertoys.quickaccess -force -ea 0; wait-process -name powertoys.quickaccess -ea 0; start-sleep 0.5}"
     ],
     "uninstaller": {
         "script": [
@@ -78,17 +80,6 @@
         "regex": "/releases/download/(?<tag>[\\w.]+)/PowerToysUserSetup-([\\d.]+)-x64\\.exe"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/microsoft/PowerToys/releases/download/v$version/PowerToysUserSetup-$version-x64.exe"
-            },
-            "arm64": {
-                "url": "https://github.com/microsoft/PowerToys/releases/download/v$version/PowerToysUserSetup-$version-arm64.exe"
-            }
-        },
-        "hash": {
-            "url": "https://github.com/microsoft/PowerToys/releases/tag/v$version",
-            "regex": "(?sm)$basename.*?>$sha256<"
-        }
+        "url": "https://github.com/microsoft/PowerToys/releases/download/v$version/PowerToysUserSetup-$version-x64.exe"
     }
 }

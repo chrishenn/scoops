@@ -1,11 +1,23 @@
 [tools]
 pkl = "latest"
-hk = {version = "latest", os = ["linux"]}
+hk = { version = "latest", os = ["linux"] }
+markdownlint-cli2 = { version = "latest", os = ["linux"] }
+oxfmt = "latest"
+jactionlint = "latest"
+pinact = "latest"
 
-# mise is not detecting pwsh shell or os=windows
-# prettier = "latest"
-# markdownlint-cli2 = {version = "latest", os = ["linux"]}
+[tasks.fix]
+alias = "f"
+description = "run project formatters declared in hk.pkl in 'fix' mode"
+run = "hk fix --all"
 
-[env]
-# libgit2 doesn't support git extension "refstorage"
-HK_LIBGIT2 = 0
+[tasks.check]
+alias = "c"
+description = "run project linters declared in hk.pkl in 'check' mode"
+run = "hk check --all"
+
+[tasks.sync]
+alias = 's'
+description = "git: sync local changes to remote"
+usage = 'arg "<msg>" default="sync"'
+run = 'git add -A && git commit -am "{{usage.msg}}" && git pull && git push'

@@ -40,6 +40,7 @@ function uninstall {
     if (get-process code -ea 0) {
         stop-process -name code -ea 0
         wait-process -name code -ea 0
+        start-sleep 0.5
     }
 }
 

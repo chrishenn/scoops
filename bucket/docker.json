@@ -1,23 +1,17 @@
 {
-    "version": "29.2.0",
+    "version": "29.9.1",
     "description": "Docker {cli, engine, compose, buildx} for windows containers",
     "homepage": "https://docs.docker.com/engine",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.2.0.zip",
-            "hash": "6d8f2e8d8ff9bbe15dfc41ffd2f1c6a95721c5e178de8619ada9084f72ee363e"
+            "url": "https://download.docker.com/win/static/stable/x86_64/docker-29.9.1.zip",
+            "hash": "5d9b66509390553fd97d590ec2ff0ce10b04c2ac653fa52f2abf2f05c4c197ca"
         }
     },
-    "depends": [
-        "docker-compose",
-        "docker-buildx"
-    ],
+    "depends": ["docker-compose", "docker-buildx"],
     "extract_dir": "docker",
-    "bin": [
-        "docker.exe",
-        "dockerd.exe"
-    ],
+    "bin": ["docker.exe", "dockerd.exe"],
     "post_install": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -install",
     "pre_uninstall": "& \"$bucketsdir\\chris\\scripts\\$app\\$app.ps1\" -uninstall",
     "checkver": {

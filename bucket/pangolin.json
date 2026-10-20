@@ -1,10 +1,10 @@
 {
-    "version": "0.5.0",
-    "description": "Pangolin Windows Client",
+    "version": "0.15.1",
+    "description": "Pangolin Client",
     "homepage": "https://github.com/fosrl/windows",
     "license": "https://github.com/fosrl/windows/blob/main/LICENSE",
-    "url": "https://github.com/fosrl/windows/releases/download/0.5.0/pangolin-amd64-0.5.0.msi#/setup.msi_",
-    "hash": "67f1a1e9557effdb56f504e7402efd597caa7e7700c63e2fe60374e3a3294b20",
+    "url": "https://github.com/fosrl/windows/releases/download/0.15.1/pangolin-amd64-0.15.1.msi#/setup.msi_",
+    "hash": "e62d5b578c4aa890fef0ea39eceeeda5b72d7f1b0fc1da09bb0dc9db47e0fdaf",
     "installer": {
         "script": "Invoke-ExternalCommand msiexec -runas -argumentlist \"/i $dir\\setup.msi_ /qn\""
     },
@@ -13,6 +13,6 @@
     },
     "checkver": "github",
     "autoupdate": {
-        "url": "https://github.com/fosrl/windows/releases/download/v$version/pangolin-amd64-$version.msi#/setup.msi_"
+        "url": "https://github.com/fosrl/windows/releases/download/$version/pangolin-amd64-$version.msi#/setup.msi_"
     }
 }
