@@ -18,13 +18,11 @@ jobs:
       contents: read
       # auto-update versions
       pull-requests: write
-    timeout-minutes: 10
+    timeout-minutes: 100
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
       - name: Run Pull Request Handler
         uses: ScoopInstaller/GithubActions@5bceeda181721d9d10a18fdcc3ddca6f33467ae6 # v3.0.0
