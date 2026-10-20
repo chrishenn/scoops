@@ -1,10 +1,10 @@
 {
-    "version": "26100.4946.69.6",
+    "version": "26100.9711.71.1",
     "description": "This project aims to enhance the working environment on Windows",
     "homepage": "https://github.com/valinet/ExplorerPatcher",
     "license": "GPL-2.0",
-    "url": "https://github.com/valinet/ExplorerPatcher/releases/download/26100.4946.69.6_7384790/ep_setup.exe",
-    "hash": "8e3dd4f24f65234cfc2aaae7d84f2a9ebc167ab47cb50f4422d5974d44d5ffe7",
+    "url": "https://github.com/valinet/ExplorerPatcher/releases/download/26100.9711.71.1/ep_setup.exe",
+    "hash": "2165c7d12f10b1a137472de5b64abdc64dcdd9fc31362c7ff41d7c5b57c8e9e6",
     "pre_install": [
         "if (-not (is_admin)) {",
         "   error \"$app requires admin rights to $cmd\"",
@@ -52,7 +52,7 @@
     ],
     "uninstaller": {
         "file": "ep_setup.exe",
-        "args": ["/uninstall"]
+        "args": "/uninstall"
     },
     "post_uninstall": [
         "rm -r -force 'HKCU:\\Software\\ExplorerPatcher'",

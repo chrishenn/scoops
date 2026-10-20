@@ -1,14 +1,25 @@
-on:
-  pull_request_target:
-    types: [opened]
 name: Pull Requests
+
+on:
+  pull_request:
+    types: [opened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   pullRequestHandler:
-    name: PullRequestHandler
-    runs-on: windows-latest
+    name: Pull Request Handler
+    timeout-minutes: 1000
+    if: github.event_name == 'pull_request'
+    runs-on: windows-2025
     steps:
-      - uses: actions/checkout@main
-      - name: PullRequestHandler
-        uses: ScoopInstaller/GithubActions@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Run Pull Request Handler
+        uses: ScoopInstaller/GithubActions@5bceeda181721d9d10a18fdcc3ddca6f33467ae6 # v3.0.0

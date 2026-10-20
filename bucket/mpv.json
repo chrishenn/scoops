@@ -18,12 +18,7 @@
         }
     },
     "env_add_path": ".",
-    "shortcuts": [
-        [
-            "mpv.exe",
-            "mpv"
-        ]
-    ],
+    "shortcuts": [["mpv.exe", "mpv"]],
     "persist": "portable_config",
     "post_install": "cp -force $bucketsdir\\$bucket\\scripts\\$app\\mpv.conf $persist_dir\\portable_config\\mpv.conf",
     "checkver": {

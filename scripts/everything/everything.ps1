@@ -33,6 +33,7 @@ function uninstall {
     if (get-process -name everything -ea 0) {
         Stop-Process -name everything -force -ea 0
         wait-process -name everything -ea 0
+        start-sleep 0.5
     }
 }
 
