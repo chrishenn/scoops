@@ -15,7 +15,7 @@ concurrency:
 jobs:
   excavate:
     name: Excavate
-    timeout-minutes: 10
+    timeout-minutes: 100
     permissions:
       # auto-update versions
       contents: write
@@ -23,9 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
       - name: Excavate
         uses: ScoopInstaller/GithubActions@5bceeda181721d9d10a18fdcc3ddca6f33467ae6 # v3.0.0
         env:
           SKIP_UPDATED: 1
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
