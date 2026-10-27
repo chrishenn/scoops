@@ -1,9 +1,10 @@
 {
+    "notes": "Their server will not send the installer - I'm assuming it's a server problem and not a me problem",
     "version": "2026.1019.102806",
     "description": "Fluxer Canary",
     "homepage": "https://fluxer.app",
     "license": "AGPLv3",
-    "url": "https://api.fluxer.app/dl/desktop/canary/win32/x64/latest/setup#/setup.exe",
+    "url": "https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup#/setup.exe",
     "hash": "b4e101a89473c542201ed5de07f719a6707e650bb3b8b58c32ea7b29e09577ed",
     "installer": {
         "script": "start-process -wait \"$dir\\setup.exe\" -a '-s'"
@@ -13,14 +14,14 @@
     },
     "checkver": {
         "script": [
-            "$src = 'https://api.fluxer.app/dl/desktop/canary/win32/x64/latest/setup'",
+            "$src = 'https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup'",
             "$html = curl.exe -IsSq $src",
-            "$ver = [regex]::Matches($html, 'x-fluxer-version: ([\\d.]+)')",
+            "$ver = [regex]::Matches($html, 'filename=\"Fluxer-Canary-([\\d.]+)-win-x64.exe\"')",
             "[string]::Format('{0}', $ver.groups[1].value)"
         ],
         "regex": "(?<version>.+)"
     },
     "autoupdate": {
-        "url": "https://api.fluxer.app/dl/desktop/canary/win32/x64/latest/setup#/setup.exe"
+        "url": "https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup#/setup.exe"
     }
 }
