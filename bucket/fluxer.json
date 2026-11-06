@@ -1,26 +1,17 @@
 {
-    "version": "2026.1106.11354",
+    "version": "2026.1120.22310",
     "description": "Fluxer Canary",
-    "homepage": "https://fluxer.app",
+    "homepage": "https://github.com/fluxerapp/fluxer",
     "license": "AGPLv3",
-    "url": "https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup#/setup.exe",
-    "hash": "9352cae934546ea1dc9cf232e496bf78d91e21650c2e1dedba543927907dab6d",
-    "installer": {
-        "script": "start-process -wait \"$dir\\setup.exe\" -a '-s'"
-    },
-    "uninstaller": {
-        "script": "start-process -wait \"$env:localappdata\\fluxer_app\\Update.exe\" -a '--uninstall -s'"
-    },
+    "hash": "e5e0fec047247bbd824b2a399eeab7edbfe59b7f1af82c0e27957d90d6872e88",
+    "url": "https://github.com/fluxerapp/fluxer/releases/download/fluxer-desktop-canary%402026.1120.22310/Fluxer-Canary-2026.1120.22310-portable-win-x64.zip",
+    "shortcuts": [["Fluxer Canary.exe", "Fluxer Canary"]],
+    "pre_uninstall": "if (Get-Process -name 'Fluxer Canary' -ea 0) {stop-process -name 'Fluxer Canary' -force -ea 0; wait-process -name 'Fluxer Canary' -ea 0; start-sleep 0.5}",
     "checkver": {
-        "script": [
-            "$src = 'https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup'",
-            "$html = curl.exe -IsSq $src",
-            "$ver = [regex]::Matches($html, 'filename=\"Fluxer-Canary-([\\d.]+)-win-x64.exe\"')",
-            "[string]::Format('{0}', $ver.groups[1].value)"
-        ],
-        "regex": "(?<version>.+)"
+        "url": "https://github.com/fluxerapp/fluxer/releases?q=fluxer-desktop-canary",
+        "regex": "fluxer-desktop-canary ([\\d.]+)"
     },
     "autoupdate": {
-        "url": "https://pkgs.fluxer.com/desktop/canary/win32/x64/latest/setup#/setup.exe"
+        "url": "https://github.com/fluxerapp/fluxer/releases/download/fluxer-desktop-canary%40$version/Fluxer-Canary-$version-portable-win-x64.zip"
     }
 }
